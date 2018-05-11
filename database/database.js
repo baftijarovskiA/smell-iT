@@ -63,7 +63,7 @@ function getDataF() {
 			item.innerHTML+="<div class='product-l' id='"+i+"' title='"+DataF[i].model+"' ><div class='image' onclick='openModal();currentSlide("+x+")'><img src='"+DataF[i].image+"'></div>"+
 				"<div class='desc'><h1>"+DataF[i].brand+"</h1><hr><br><p>"+DataF[i].model+"</p><p>"+DataF[i].price+" MKD</p><p>"+DataF[i].type+"</p><br>"+
 				"<i class='fa fa-thumbs-up like' title='Like'>0</i> <i class='fa fa-thumbs-down dislike' title='Dislike'>0</i>"+
-				"<button class='single-del' value='"+i+"' >X</button><input type='checkbox' class='multi-del' value='"+i+"' ></div></div></div>";
+				"<button class='single-del' value='"+i+"' title='Delete "+DataF[i].model+"' >X</button><input type='checkbox' class='multi-del' value='"+i+"' ></div></div></div>";
 				
 			items.innerHTML += "<div class='Slides' id='S"+i+"' ><img src='"+DataF[i].image+"'><div class='Desc' >"+
 			"<h1>"+DataF[i].brand+"</h1><br><hr><br><p><b>Model:</b> "+DataF[i].model+"</p><br><p><b>Price:</b> "+DataF[i].price+" MKD</p><br></div></div>";

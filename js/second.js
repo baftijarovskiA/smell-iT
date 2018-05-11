@@ -17,7 +17,14 @@ $(document).ready(function(){
 	$('#del-btn').click(function(){
 		$(".single-del").show();
 		$(".multi-del").show();
+		$(".prop-window").show();
 
+	});
+	$("#btn-done").click(function(){
+		$(".single-del").hide();
+		$(".multi-del").hide();
+		$(".prop-window").hide();
+		$(".expand").slideUp();
 	});
 
 	$("body").on('click', ".fa", function(){
@@ -45,5 +52,10 @@ $(document).ready(function(){
 			count--;
 			$("#del-count").html(count);
 		}
+	});
+
+	$("#delete-selected").click(function(){
+		$('.selected').hide();
+		$("#del-count").html("0");
 	});
 });
