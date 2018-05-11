@@ -238,29 +238,41 @@ body{
 	margin-top: 5px;
 	margin-bottom: 5px;
 	opacity: .8;
+	font-size: 18px;
 }
 .product-l:hover{
 	opacity: 1;
-	cursor: pointer;
 }
 .product-l .image{
 	width: 35%;
 	float: left;
 	height: 180px;
 }
+.product-l .image:hover{
+	cursor: pointer;
+}
 .product-l .image img{
 	max-width: 30%;
 }
-.product-s{
-	width: 30%;
-	text-align: center;
-	background: white;
-	color: black;
-	padding: 5px;
-	display: inline-block;
-	margin: 15px;
-	height: 400px;
+.fa{
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 20px;
 }
-.product-s img{
-	max-width: 60%;
+.fa:hover{
+	cursor: pointer;
+}
+.like{
+	color: #00bac6;
+}
+.dislike{
+	color: #ffaaaa;
+}
+.single-del{
+	display: none;
+	padding: 5px;
+	margin-right: 20px;
+}
+.multi-del{
+	display: none;
 }

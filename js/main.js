@@ -37,19 +37,78 @@ function sendMail(){
 	}
 }
 
-$(document).ready(function(){
-	var sym=0;
-	$(".toggle").click(function(){
-		sym++;
-		$(".expand").slideToggle();
-		if(sym == 1){
-			$("#symbol").removeClass('fa fa-angle-down');
-			$("#symbol").addClass('fa fa-angle-up');
-		}else if(sym == 2){
-			$("#symbol").removeClass('fa fa-angle-up');
-			$("#symbol").addClass('fa fa-angle-down');
-			sym=0;
-		}
+var photoUrl="";
+  function readURL(event){
+           photoUrl = URL.createObjectURL(event.target.files[0]);
+}
+
+function addProduct(x){
+	var brand = document.getElementById('input-m-brand');
+	var model = document.getElementById('input-m-model');
+	var type = document.getElementById('input-m-type');
+	var price = document.getElementById('input-m-price');
+	var image = photoUrl;
+
+	if(brand.value=="" || model.value=="" || type.value=="" || price.value=="" ){
+		window.alert("Cannot add empty product!\nAll fields are required!");
 		
-	});
-});
+	} else {
+
+		var i=parseInt(x-1);
+		var item = document.getElementById('articles');
+		item.innerHTML+="<div class='product-l' id='"+i+"' title='"+model.value+"' ><div class='image'><img src='"+image+"'></div>"+
+				"<div class='desc'><h1>"+brand.value+"</h1><hr><br><p>"+model.value+"</p><p>"+price.value+" MKD</p><p>"+type.value+"</p><br>"+
+				"<i class='fa fa-thumbs-up like'>0</i> <i class='fa fa-thumbs-down dislike'>0</i>"+
+				"</div></div></div>";
+		x++;
+    	i++;
+		
+
+    	document.documentElement.scrollTop = 3000;
+		document.getElementById('input-m-brand').value="";
+		document.getElementById('input-m-model').value="";
+		document.getElementById('input-m-type').value="";
+		document.getElementById('input-m-price').value="";
+	}
+}
+function openModal() {
+  document.getElementById('myModal').style.display = "block";
+  document.getElementById('blr').setAttribute("class","blur");
+}
+
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+  document.getElementById('blr').setAttribute("class","");
+}
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("Slides");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+}
+
+function checkKey(e){
+     e = e || window.event;
+    if(e.keyCode == '37'){
+        plusSlides(-1);
+     } else if(e.keyCode == '39'){
+        plusSlides(1);
+    } else if(e.keyCode == '27'){
+        closeModal();
+    }
+}

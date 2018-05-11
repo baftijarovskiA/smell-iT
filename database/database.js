@@ -34,17 +34,21 @@ var data = '['+
 
 var Data = JSON.parse(data);
 
-function getData(sex,show) {
+function getData(sex) {
 	var item = document.getElementById('articles');
+	var items = document.getElementById('ModalC');
+	var x=0;
 	for (var i = 0; i < Data.length; i++) {
-		if(Data[i].type == sex && show == "List"){
-			item.innerHTML+="<div class='product-l' title='"+Data[i].model+"' ><div class='image'><img src='"+Data[i].image+"'></div>"+
-				"<div class='desc'><h1>"+Data[i].brand+"</h1><hr><br><p>"+Data[i].model+"</p><p>"+Data[i].price+" MKD</p><p>"+Data[i].type+"</p><br><br>"+
-				"<i class='fa fa-thumbs-up like'> </i> <span>0</span><i class='fa fa-thumbs-down dislike'> </i> <span>0</span>"+
-				"</div></div></div>";
-		} else if(Data[i].type == sex && show == "Square"){
-			item.innerHTML+="<div class='product-s'><img src='"+Data[i].image+"'><hr><br><p>"+Data[i].model+"</p><br>"+
-				"<i class='fa fa-thumbs-up like'> </i> <span>0</span> <i class='fa fa-thumbs-down dislike'> </i> <span>0</span></div>";
+		if(Data[i].type == sex){
+			item.innerHTML+="<div class='product-l' id='"+i+"' title='"+Data[i].model+"' ><div class='image' onclick='openModal();currentSlide("+x+")'><img src='"+Data[i].image+"'></div>"+
+				"<div class='desc'><h1>"+Data[i].brand+"</h1><hr><br><p>"+Data[i].model+"</p><p>"+Data[i].price+" MKD</p><p>"+Data[i].type+"</p><br>"+
+				"<i class='fa fa-thumbs-up like'>0</i> <i class='fa fa-thumbs-down dislike'>0</i>"+
+				"<button class='single-del' value='"+i+"' >X</button><input type='checkbox' class='multi-del' value='"+i+"' ></div></div></div>";
+				
+			items.innerHTML += "<div class='Slides' id='S"+i+"' ><img src='"+Data[i].image+"'><div class='specs'>"+
+				"<p><b>Brand: </b>"+Data[i].brand+"</p><p><b>Model: </b>"+Data[i].model+"</p><p><b>Color: </b></p>"+
+        		"<p><b>Type: </b>"+Data[i].type+"</p><p><b>Price: </b> "+Data[i].price+" $</p><p><b>Details: </b></p></div></div>";
+        	x++;
 		}
 		
 	}
