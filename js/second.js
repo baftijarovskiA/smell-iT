@@ -31,4 +31,19 @@ $(document).ready(function(){
 		$("#"+$(this).attr("value")).hide();
 		$("#S"+$(this).attr("value")).hide();
 	});
+
+
+	$("body").on('click', ".multi-del", function(){
+		var count = $("#del-count").html();
+		count = parseInt(count);
+		if ($(this).prop('checked')){
+			$("#"+$(this).attr("value")).addClass('selected');
+			count++;
+			$("#del-count").html(count);
+		} else {
+			$("#"+$(this).attr("value")).removeClass('selected');
+			count--;
+			$("#del-count").html(count);
+		}
+	});
 });

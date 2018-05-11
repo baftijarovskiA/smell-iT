@@ -1,4 +1,4 @@
-var data = '['+
+var data1 = '['+
 
  	'{ "brand":"Armani", "type":"Men", "model":"Acqua Di Gio", "price": 22, "image":"img/MenPerfume/Armani/AcquaDiGio.jpg" },'+
  	'{ "brand":"Armani", "type":"Men", "model":"Armani Code", "price": 2222, "image":"img/MenPerfume/Armani/ArmaniCode.jpg" },'+
@@ -13,7 +13,12 @@ var data = '['+
  	'{ "brand":"Michael Kors", "type":"Men", "model":"Extreme Blue", "price": 22, "image":"img/MenPerfume/MichaelKors/ExtremeBlue.jpg" },'+
  	'{ "brand":"Michael Kors", "type":"Men", "model":"For Men", "price": 22, "image":"img/MenPerfume/MichaelKors/forMen.jpg" },'+
  	'{ "brand":"Michael Kors", "type":"Men", "model":"Fragrance", "price": 22, "image":"img/MenPerfume/MichaelKors/Fragrance.jpg" },'+
- 	'{ "brand":"Michael Kors", "type":"Men", "model":"Sporty Citrus", "price": 22, "image":"img/MenPerfume/MichaelKors/SportyCitrus.jpg" },'+
+ 	'{ "brand":"Michael Kors", "type":"Men", "model":"Sporty Citrus", "price": 22, "image":"img/MenPerfume/MichaelKors/SportyCitrus.jpg" }'+
+ 			
+ 			']';
+
+
+ var data2 = '['+
 
  	'{ "brand":"Paco Rabanne", "type":"Women", "model":"Black XS", "price": 22, "image":"img/WomenPerfume/PacoRabanne/BlackXS.jpg" },'+
  	'{ "brand":"Paco Rabanne", "type":"Women", "model":"Lady Million", "price": 22, "image":"img/WomenPerfume/PacoRabanne/LadyMillion.jpg" },'+
@@ -32,24 +37,36 @@ var data = '['+
  			
  			']';
 
-var Data = JSON.parse(data);
+var DataM = JSON.parse(data1);
+var DataF = JSON.parse(data2);
 
-function getData(sex) {
+function getDataM() {
 	var item = document.getElementById('articles');
 	var items = document.getElementById('ModalC');
-	var x=0;
-	for (var i = 0; i < Data.length; i++) {
-		if(Data[i].type == sex){
-			item.innerHTML+="<div class='product-l' id='"+i+"' title='"+Data[i].model+"' ><div class='image' onclick='openModal();currentSlide("+x+")'><img src='"+Data[i].image+"'></div>"+
-				"<div class='desc'><h1>"+Data[i].brand+"</h1><hr><br><p>"+Data[i].model+"</p><p>"+Data[i].price+" MKD</p><p>"+Data[i].type+"</p><br>"+
-				"<i class='fa fa-thumbs-up like'>0</i> <i class='fa fa-thumbs-down dislike'>0</i>"+
+	var x=1;
+	for (var i = 0; i < DataM.length; i++) {
+			item.innerHTML+="<div class='product-l' id='"+i+"' title='"+DataM[i].model+"' ><div class='image' onclick='openModal();currentSlide("+x+")'><img src='"+DataM[i].image+"'></div>"+
+				"<div class='desc'><h1>"+DataM[i].brand+"</h1><hr><br><p>"+DataM[i].model+"</p><p>"+DataM[i].price+" MKD</p><p>"+DataM[i].type+"</p><br>"+
+				"<i class='fa fa-thumbs-up like' title='Like'>0</i> <i class='fa fa-thumbs-down dislike' title='Dislike'>0</i>"+
+				"<button class='single-del' value='"+i+"' title='Delete "+DataM[i].model+"' >X</button><input type='checkbox' class='multi-del' value='"+i+"' ></div></div></div>";
+				
+			items.innerHTML += "<div class='Slides' id='S"+i+"' ><img src='"+DataM[i].image+"'><div class='Desc' >"+
+			"<h1>"+DataM[i].brand+"</h1><br><hr><br><p><b>Model:</b> "+DataM[i].model+"</p><br><p><b>Price:</b> "+DataM[i].price+" MKD</p><br></div></div>";
+        	x++;
+	}
+}
+function getDataF() {
+	var item = document.getElementById('articles');
+	var items = document.getElementById('ModalC');
+	var x=1;
+	for (var i = 0; i < DataF.length; i++) {
+			item.innerHTML+="<div class='product-l' id='"+i+"' title='"+DataF[i].model+"' ><div class='image' onclick='openModal();currentSlide("+x+")'><img src='"+DataF[i].image+"'></div>"+
+				"<div class='desc'><h1>"+DataF[i].brand+"</h1><hr><br><p>"+DataF[i].model+"</p><p>"+DataF[i].price+" MKD</p><p>"+DataF[i].type+"</p><br>"+
+				"<i class='fa fa-thumbs-up like' title='Like'>0</i> <i class='fa fa-thumbs-down dislike' title='Dislike'>0</i>"+
 				"<button class='single-del' value='"+i+"' >X</button><input type='checkbox' class='multi-del' value='"+i+"' ></div></div></div>";
 				
-			items.innerHTML += "<div class='Slides' id='S"+i+"' ><img src='"+Data[i].image+"'><div class='specs'>"+
-				"<p><b>Brand: </b>"+Data[i].brand+"</p><p><b>Model: </b>"+Data[i].model+"</p><p><b>Color: </b></p>"+
-        		"<p><b>Type: </b>"+Data[i].type+"</p><p><b>Price: </b> "+Data[i].price+" $</p><p><b>Details: </b></p></div></div>";
+			items.innerHTML += "<div class='Slides' id='S"+i+"' ><img src='"+DataF[i].image+"'><div class='Desc' >"+
+			"<h1>"+DataF[i].brand+"</h1><br><hr><br><p><b>Model:</b> "+DataF[i].model+"</p><br><p><b>Price:</b> "+DataF[i].price+" MKD</p><br></div></div>";
         	x++;
-		}
-		
 	}
 }

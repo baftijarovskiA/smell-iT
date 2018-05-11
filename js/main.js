@@ -56,13 +56,15 @@ function addProduct(x){
 
 		var i=parseInt(x-1);
 		var item = document.getElementById('articles');
-		item.innerHTML+="<div class='product-l' id='"+i+"' title='"+model.value+"' ><div class='image'><img src='"+image+"'></div>"+
+		var items = document.getElementById('ModalC');
+		item.innerHTML+="<div class='product-l' id='"+i+"' title='"+model.value+"' ><div class='image' onclick='openModal();currentSlide("+x+")' ><img src='"+image+"'></div>"+
 				"<div class='desc'><h1>"+brand.value+"</h1><hr><br><p>"+model.value+"</p><p>"+price.value+" MKD</p><p>"+type.value+"</p><br>"+
-				"<i class='fa fa-thumbs-up like'>0</i> <i class='fa fa-thumbs-down dislike'>0</i>"+
-				"</div></div></div>";
+				"<i class='fa fa-thumbs-up like' title='Like'>0</i> <i class='fa fa-thumbs-down dislike' title='Dislike'>0</i>"+
+				"<button class='single-del' value='"+i+"' title='Delete "+model.value+"' >X</button><input type='checkbox' class='multi-del' value='"+i+"' ></div></div></div>";
 		x++;
     	i++;
-		
+		items.innerHTML += "<div class='Slides' id='S"+i+"' ><img src='"+image+"'><div class='Desc' >"+
+			"<h1>"+brand.value+"</h1><br><hr><br><p><b>Model:</b> "+model.value+"</p><br><p><b>Price:</b> "+price.value+" MKD</p><br></div></div>";
 
     	document.documentElement.scrollTop = 3000;
 		document.getElementById('input-m-brand').value="";

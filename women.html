@@ -18,7 +18,8 @@
 		document.onkeydown = checkKey;
 	</script>
 </head>
-<body onload='getData("Women")' >
+<body onload='getDataF()' >
+	<div id="blr">
 	<button onclick="topFunction()" id="toTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
 	<div class="header">
 		<div class="logo">
@@ -48,7 +49,7 @@
 					<input type="text" id="input-m-model" class="input-p" placeholder="Product Model"><br>
 					<input type="number" id="input-m-price" class="input-p" placeholder="Product Price"><br>
 					<input type="file" id="input-m-image" onchange="readURL(event)"><br>
-					<button class="input-p" onclick="addProduct(23);">Add</button>
+					<button class="input-p" onclick="addProduct(13);">Add</button>
 				</div>
 				<div class="delete">
 					<p>Or delete multiple or single products!</p><br>
@@ -57,7 +58,8 @@
 			</div>
 		</div>
 		<hr class="hr">
-		<div id="articles" class="articles"></div>
+		<div id="articles" class="articles"></div></div>
+	</div>
 		<div id="myModal" class="modal">
 			<span class="close cursor" onclick="closeModal()">&times;</span>
 			<div class="modal-content" id="ModalC">    

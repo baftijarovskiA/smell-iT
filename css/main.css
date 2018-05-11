@@ -272,7 +272,27 @@ body{
 	display: none;
 	padding: 5px;
 	margin-right: 20px;
+	cursor: pointer;
 }
 .multi-del{
 	display: none;
+	cursor: pointer;
+}
+.selected{
+	background: grey;
+	opacity: 1;
+}
+.Slides img{
+	margin-top: 10px;
+	max-width: 100%;
+	margin-left: 50px;
+	opacity: .7;
+}
+.Desc{
+	margin-right: 80px;
+	margin-top: 50px;
+	width: 50%;
+	float: right;
+	height: 300px;
+	color: white;
 }

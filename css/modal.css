@@ -13,6 +13,7 @@
 
 .modal-content {
   position: relative;
+  background-image: url(../img/modalbg.jpg);
   background-color: #FFFFFF;
   margin: auto;
   padding: 0;
