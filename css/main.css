@@ -144,6 +144,7 @@ body{
 	border-radius: 5px;
 	font-size: 15px;
 	color: #00bac6;
+	text-shadow: 1px 1px 1px black;
 }
 .form-input:focus{
 	border: 1px solid #ffaaaa;
@@ -408,4 +409,32 @@ body{
 .t-3{
 	transform: rotate(0deg);
 	text-shadow: 2px 2px 2px black;
+}
+.h-story{
+	margin-left: 50px;
+}
+.font{
+	font-family: Century Gothic;
+	color: #ffaaaa;
+	font-size: 60px;
+}
+.font2{
+	font-family: Century Gothic;
+	color: #00bac6;
+	font-size: 75px;
+}
+.paragraph{
+	width: 50%;
+	font-family: Century Gothic;
+	height: 450px;
+}
+.paragraph p{
+	margin: 20px;
+}
+.team{
+	text-align: right;
+	margin: 50px;
+	margin-bottom: 0px;
+	font-size: 35px;
+	text-shadow: 3px 3px 3px black
 }
